@@ -74,7 +74,7 @@ document.querySelector('.form-box-login .login').addEventListener('click', (e) =
     if (user.password === password) {
         errorMessageElement.style.color = '#28a745';
         errorMessageElement.textContent = "Login successful! Redirecting...";
-        setTimeout(() => { window.location.href = 'TechHomePage.html'; }, 1500);
+        setTimeout(() => { window.location.href = 'home.html'; }, 1500);
     } else {
         errorMessageElement.textContent = "Incorrect username or password.";
     }
