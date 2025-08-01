@@ -44,7 +44,14 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
 }
-
+.menu a, .menu a:link {
+    color: rgba(41, 2, 2, 0.8);
+    text-decoration: none; 
+    padding: 4px 6px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
 .menu a:hover {
     color: #d89d1d;
 }
@@ -91,7 +98,9 @@
     transition: transform .5s linear;
     opacity: 0.3;
 }
-
+.logout, .logout:link, .logout:visited {
+    text-decoration: none;
+}
 .logout:hover::before {
     transform: translateX(0px);
 }
@@ -520,18 +529,18 @@ a.visithere {
         <div class="header">
             <div class="logo"><img width="130px" height="100px" src="./logo.png"/></div>
             
-            <div class="menu">
-                <a>Home</a>
-                <a>Projects</a>
-                <a>Startups</a>
-                <a>Resumes</a>
-                <a>Hirings</a>
-                <a>TechResources</a>
-                <a>ContestTrack</a>
+             <div class="menu">
+                <a href="home.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="startup.html">Startups</a>
+                <a href="resume_html.html">Resumes</a>
+                <a href="internships.html" style="color: #d4a339; text-decoration: none;">Hirings</a>
+                <a href="Tech360.html">TechResources</a>
+                <a href="ContestTrack.html">ContestTrack</a>
             </div>
 
              <div class="right-group">
-                   <div class="logout">Logout</div>
+                   <a href="index.html" class="logout" style="text-decoration: none;">Logout</a>
     <div class="bar" onclick="openn()">&#9776;</div>
   </div>
         </div>
@@ -539,16 +548,16 @@ a.visithere {
         <!-- Slide Bar -->
         <div class="slide-menu">
             <div class="slide-logo">
-                <img width="100px" height="80px" src="./logo.png"/>
+                <img width="100px" height="80px" src="logo.png"/>
                 <span onclick="cloose()">&times;</span>
             </div>
-                <a>Home</a>
-                <a>Projects</a>
-                <a>Startups</a>
-                <a>Resumes</a>
-                <a>Hirings</a>
-                <a>TechResources</a>
-                <a>ContestTrack</a>
+                <a href="home.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="startup.html">Startups</a>
+                <a href="resume_html.html">Resumes</a>
+                <a href="internships.html" style="color: #d4a339; text-decoration: none;">Hirings</a>
+                <a href="Tech360.html">TechResources</a>
+                <a href="ContestTrack.html">ContestTrack</a>
         </div>
      <div class="overlay" onclick="cloose()"></div>
 
