@@ -1,103 +1,157 @@
-document.addEventListener('DOMContentLoaded', () => {
 
-    // ======================= NEW SLIDE MENU LOGIC =======================
-    // These functions are called by the 'onclick' attributes in the HTML
-    window.openn = function() {
-        document.querySelector(".slide-menu").style.left = "0px";
-        document.querySelector(".overlay").style.display = "block";
-        document.body.style.overflow = "hidden";
+    function openn() {
+      document.getElementsByClassName("slide-menu")[0].style.left = "0px";
+      document.querySelector(".overlay").style.display = "block";
+      document.body.style.overflow = "hidden";
     }
 
-    window.cloose = function() {
-        document.querySelector(".slide-menu").style.left = "-250px";
-        document.querySelector(".overlay").style.display = "none";
-        document.body.style.overflow = "auto";
+    function cloose() {
+      document.getElementsByClassName("slide-menu")[0].style.left = "-250px";
+      document.querySelector(".overlay").style.display = "none";
+      document.body.style.overflow = "auto";
     }
 
-    // ======================= NEW FOOTER FORM LOGIC =======================
-    const form = document.getElementById("subscribeForm");
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            const email = document.getElementById("emailInput").value.trim();
-            if (email === "") {
-                alert("Please enter a valid email.");
-                return;
-            }
-            
-            fetch(form.action, {
-                method: "POST",
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("Thank you for subscribing!🎉 We will keep you updated with our latest news.");
-                    document.getElementById("emailInput").value = "";
-                } else {
-                    alert("Sorry, there was an error submitting the form. Please try again.");
-                }
-            })
-            .catch(error => {
-                console.error("Form submission error:", error);
-                alert("Sorry, there was a network error. Please try again.");
-            });
-        });
-    }
-
-
-    // ======================= ORIGINAL RESUME MODAL LOGIC (Kept) =======================
-    const resumeCards = document.querySelectorAll('.resume-card');
-    const modal = document.getElementById('resume-modal');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
+  const successData = [
+  {
+    name: 'Zoho',
+    desc: 'Bootstrapped SaaS giant from India',
+    link: 'https://www.zoho.com',
     
-    if (modal) {
-        const modalImg = document.getElementById('modal-img');
-        const modalName = document.getElementById('modal-name');
-        const modalStatusBadge = document.getElementById('modal-status-badge');
-        const modalStory = document.getElementById('modal-story');
-        const modalAtsScore = document.getElementById('modal-ats-score');
-        const modalAtsFill = document.getElementById('modal-ats-fill');
+  },
+  {
+    name: 'Freshworks',
+    desc: 'CRM and support solutions, NASDAQ listed',
+    link: 'https://www.freshworks.com',
+    // img: 'https://assets.www.freshworks.com/attachments/cjfwqvfv200d8ptxxlxhpsa2e-freshworks.svg'
+  },
+  {
+    name: 'CRED',
+    desc: 'Reward-based credit card payment platform',
+    link: 'https://www.cred.club',
+    // img: 'https://seeklogo.com/images/C/cred-logo-B7480F207C-seeklogo.com.png'
+  },
+  {
+    name: 'BYJUs',
+    desc: 'EdTech learning app for school students',
+    link: 'https://www.byjus.com',
+    // img: 'https://seeklogo.com/images/B/byjus-logo-F1D0D65F7E-seeklogo.com.png'
+  },
+  {
+    name: 'Ola',
+    desc: 'Cab aggregator and electric mobility',
+    link: 'https://www.olacabs.com',
+    // img: 'https://logos-world.net/wp-content/uploads/2021/02/Ola-Logo.png'
+  },
+  {
+    name: 'Flipkart',
+    desc: 'E-commerce marketplace acquired by Walmart',
+    link: 'https://www.flipkart.com',
+    // img: 'https://1000logos.net/wp-content/uploads/2021/02/Flipkart-logo.png'
+  },
+  {
+    name: 'Razorpay',
+    desc: 'Online payments and banking for businesses',
+    link: 'https://razorpay.com',
+    // img: 'https://razorpay.com/images/logo.svg'
+  },
+  {
+    name: 'Swiggy',
+    desc: 'Food delivery platform across India',
+    link: 'https://www.swiggy.com',
+    // img: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/2560px-Swiggy_logo.svg.png'
+  },
+  {
+    name: 'Paytm',
+    desc: 'Payments and e-commerce platform',
+    link: 'https://paytm.com',
+    // img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Paytm_logo.png/800px-Paytm_logo.png'
+  }
+];
 
-        resumeCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const data = card.dataset;
-                
-                modalImg.src = data.imgSrc;
-                modalImg.alt = `Resume preview for ${data.name}`;
-                modalName.textContent = data.name;
-                modalStory.textContent = data.story;
-                
-                // Update status badge
-                modalStatusBadge.textContent = data.status === 'Undergraduate' ? data.status : `Placed at ${data.company}`;
-                modalStatusBadge.className = `placement-badge ${data.status.toLowerCase()}`;
-                
-                // Update ATS score
-                modalAtsScore.textContent = `${data.ats}%`;
-                modalAtsFill.style.width = `${data.ats}%`;
+const failData = [
+  {
+    name: 'Stayzilla',
+    desc: 'Homestay booking shut due to scale issues',
+    link: 'https://yourstory.com/2017/02/stayzilla-suspends-operations',
+    // img: 'https://static.startuptalky.com/2021/05/Stayzilla-StartupTalky.jpg'
+  },
+  {
+    name: 'TinyOwl',
+    desc: 'Food delivery startup closed after layoffs',
+    link: 'https://techcrunch.com/2016/05/25/tinyowl-now-defunct',
+    // img: 'https://static.startuptalky.com/2021/08/TinyOwl-Shutdown-StartupTalky.jpg'
+  },
+  {
+    name: 'Peppertap',
+    desc: 'Hyperlocal grocery delivery failure',
+    link: 'https://tech.economictimes.indiatimes.com/news/startups/peppertap-shuts-down/51964835',
+    // img: 'https://startuptalky.com/content/images/2021/06/peppertap.jpg'
+  },
+  {
+    name: 'LocalBanya',
+    desc: 'Online grocery that ran out of funds',
+    link: '#',
+    // img: 'https://startuptalky.com/content/images/2021/07/localbanya-shutdown-story.jpg'
+  },
+  {
+    name: 'Zebpay India',
+    desc: 'Crypto exchange shut due to regulations',
+    link: 'https://www.zebpay.com',
+    // img: 'https://cryptologos.cc/logos/zebpay-zebpay-logo.png'
+  },
+  {
+    name: 'Frankly.me',
+    desc: 'Video Q&A startup shut in 2016',
+    link: '#',
+    // img: 'https://startuptalky.com/content/images/2021/07/frankly-me-shutdown.png'
+  },
+  {
+    name: 'AskMe',
+    desc: 'Classifieds marketplace failed financially',
+    link: '#',
+    // img: 'https://startuptalky.com/content/images/2021/07/askme-shutdown-failure.jpg'
+  },
+  {
+    name: 'Dazo',
+    desc: 'Shut down due to logistics challenges',
+    link: '#',
+    // img: 'https://startuptalky.com/content/images/2021/06/dazo-failure-story.jpg'
+  },
+  {
+    name: 'Hike Messenger',
+    desc: 'Messaging app failed to compete with WhatsApp',
+    link: '#',
+    // img: 'https://upload.wikimedia.org/wikipedia/en/6/62/Hike_Messenger_Logo.png'
+  }
+];
 
-                modal.classList.add('is-open');
-                document.body.classList.add('modal-open');
-            });
-        });
+const addCards = (data, containerId) => {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  data.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-content">
+        <h4>${item.name}</h4>
+        <p>${item.desc}</p>
+        <button onclick="window.open('${item.link}', '_blank')">
+          ${containerId.includes('fail') ? 'Read Story' : 'Visit Website'}
+        </button>
+      </div>`;
+    container.appendChild(card);
+  });
+};
 
-        const closeModal = () => {
-            modal.classList.remove('is-open');
-            document.body.classList.remove('modal-open');
-        };
 
-        modalCloseBtn.addEventListener('click', closeModal);
-
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && modal.classList.contains('is-open')) {
-                closeModal();
-            }
-        });
+    function toggleSection(type) {
+      document.getElementById('success').style.display = 'none';
+      document.getElementById('failed').style.display = 'none';
+      document.getElementById(type).style.display = 'block';
+      document.getElementById(type).scrollIntoView({ behavior: 'smooth' });
     }
-});
+
+    document.addEventListener('DOMContentLoaded', () => {
+      addCards(successData, 'success-cards');
+      addCards(failData, 'failed-cards');
+    });a
