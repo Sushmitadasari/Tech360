@@ -2,7 +2,7 @@
 body {
     padding: 0;
     margin: 0;
-    background:linear-gradient(to right, #d4a339, #f9e3a4);
+    background: #fcf8ee;
     font-family: 'Poppins', sans-serif;
     padding-top: 80px; /* Offset for the fixed header */
 }
@@ -151,6 +151,10 @@ html {
     width: 100%;
     text-decoration: none;
     box-sizing: border-box;
+}
+.slide-menu a, .slide-menu a:link, .slide-menu a:visited {
+    color: rgba(41, 2, 2, 0.8);
+    text-decoration: none; 
 }
 .slide-menu a:hover{
     color: #d79f26;

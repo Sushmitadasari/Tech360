@@ -1,11 +1,11 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body {
     padding: 0;
     margin: 0;
-    background-color: white;
-    overflow-x:hidden;
+    overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
+    background-color: #fcf8ee;
 }
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .header {
   width: 100%;
@@ -31,7 +31,14 @@ body{
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
 }
-
+.menu a, .menu a:link {
+    color: rgba(41, 2, 2, 0.8);
+    text-decoration: none; 
+    padding: 4px 6px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
 .menu a:hover {
     color: #d89d1d;
 }
@@ -77,6 +84,9 @@ body{
     transition: transform .5s linear;
     opacity: 0.3;
 }
+.logout, .logout:link, .logout:visited {
+    text-decoration: none;
+}
 
 .logout:hover::before {
     transform: translateX(0px);
@@ -110,6 +120,10 @@ body{
     padding: 18px 0px;
     border-bottom: 1px solid #f4c870;  
     width: 100%;
+}
+.slide-menu a, .slide-menu a:link, .slide-menu a:visited {
+    color: rgba(41, 2, 2, 0.8);
+    text-decoration: none; 
 }
 .slide-menu a:hover{
     color: #d79f26;
@@ -172,12 +186,7 @@ body{
     }
 }
 /* In Road Map Section*/
-
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f9f9f9;
-}
+/* Removed duplicate body selector and merged its properties above */
 
 .roadmap-section {
   text-align: center;
