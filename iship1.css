@@ -168,7 +168,7 @@ body {
 /* Hero Section */
 .hero {
   height: 60vh;
-  background: url('./ishipbg.png') center/cover no-repeat;
+  background: url('techbg.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -219,7 +219,7 @@ body {
 
 /* Cards Section */
 .cards-section {
-  background-color: #fffdf9;
+  background-color: #fcf8ee;
   padding: 3rem 2rem;
   text-align: center;
 }
