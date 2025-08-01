@@ -33,7 +33,14 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
 }
-
+.menu a, .menu a:link {
+    color: rgba(41, 2, 2, 0.8);
+    text-decoration: none; 
+    padding: 4px 6px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
 .menu a:hover {
     color: #d89d1d;
 }
@@ -65,6 +72,9 @@ body {
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
     margin-right: 20px;
+}
+.logout, .logout:link, .logout:visited {
+    text-decoration: none;
 }
 .logout::before {
     z-index: -1;
@@ -116,6 +126,10 @@ body {
 }
 .slide-menu a:hover{
     color: #d79f26;
+}
+.slide-menu a, .slide-menu a:link, .slide-menu a:visited {
+    color: rgba(41, 2, 2, 0.8);
+    text-decoration: none; 
 }
 .slide-logo {
     display: flex;
