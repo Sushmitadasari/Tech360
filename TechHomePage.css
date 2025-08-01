@@ -71,6 +71,10 @@ body{
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
     margin-right: 20px;
+
+}
+.logout, .logout:link, .logout:visited {
+    text-decoration: none;
 }
 .logout::before {
     z-index: -1;
